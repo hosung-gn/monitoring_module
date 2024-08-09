@@ -1,0 +1,29 @@
+apply from: "$rootDir/gradle/script/queryDsl.gradle"
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.7'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation(project(':modules:crypt:crypt-spring-boot-starter-jpa'))
+    implementation(project(':modules:exception:exception-core'))
+    implementation(project(':modules:s3'))
+    implementation(project(':modules:crypt:crypt-core'))
+
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.3.3'
+
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // https://mvnrepository.com/artifact/org.apache.tika/tika-core
+    implementation 'org.apache.tika:tika-core:2.9.1'
+
+    implementation 'org.slf4j:slf4j-api'
+    implementation('org.apache.commons:commons-lang3:')
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation(project(':modules:secret-manager'))
+    testImplementation(project(':modules:test'))
+}
+jar.enabled = true
